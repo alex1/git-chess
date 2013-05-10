@@ -95,7 +95,7 @@ textarea {
 
     .board {
         display: block;
-        width: 402px;
+        width: 403px; /* Huh? Why does this suddenly have to be 403? */
         margin: 100px auto;
         font-size: 20px;
     }

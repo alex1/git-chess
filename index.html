@@ -22,107 +22,44 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div class="board">
-            <div class="row row1">
-                <div class="space space1"><span class="player1 piece">R</span></div>
-                <div class="space space2"><span class="player1 piece">Kn</span></div>
-                <div class="space space3"><span class="player1 piece">B</span></div>
-                <div class="space space4"><span class="player1 piece">Q</span></div>
-                <div class="space space5"><span class="player1 piece">K</span></div>
-                <div class="space space6"><span class="player1 piece">B</span></div>
-                <div class="space space7"><span class="player1 piece">Kn</span></div>
-                <div class="space space8"><span class="player1 piece">R</span></div>
+
+<!-- 
+
+    MOVE YOUR PIECES ON THIS LITTLE CHESSBOARD
+
+    B mean black, W means white, you figure
+    the rest out 
+
+-->
+<script type="text/plain" id="board-data">
+B-R |     | B-B | B-Q | B-K | B-B | B-N | B-R
+B-P | B-P | B-P | B-P | B-P | B-P | B-P | B-P
+    |     | B-N |     |     |     |     |
+    |     |     |     | B-P |     |     |
+    |     |     |     |     |     |     |
+    |     |     |     | W-P | W-N |     |
+W-P | W-P | W-P | W-P |     | W-P | W-P | W-P
+W-R | W-N | W-Q | W-Q | W-K | W-B | W-N | W-R
+</script>
+
+<script id="board-template" type="text/x-handlebars-template">
+    <div class="board">
+        {{#each rows}}
+        <div class="row row{{this.rowNumber}}">
+                {{#each cols}}
+                <div class="space space{{colNum}}">{{piece}}</div>
+                {{/each}}
                 <span class="clearfix"></span>
-            </div>
-            <div class="row row2">
-                <div class="space space1"><span class="player1 piece">P</span></div>
-                <div class="space space2"><span class="player1 piece">P</span></div>
-                <div class="space space3"><span class="player1 piece">P</span></div>
-                <div class="space space4"><span class="player1 piece">P</span></div>
-                <div class="space space5"></div>
-                <div class="space space6"><span class="player1 piece">P</span></div>
-                <div class="space space7"><span class="player1 piece">P</span></div>
-                <div class="space space8"><span class="player1 piece">P</span></div>
-                <span class="clearfix"></span>
-            </div>
-            <div class="row row3">
-                <div class="space space1"></div>
-                <div class="space space2"></div>
-                <div class="space space3"></div>
-                <div class="space space4"></div>
-                <div class="space space5"></div>
-                <div class="space space6"></div>
-                <div class="space space7"></div>
-                <div class="space space8"></div>
-                <span class="clearfix"></span>
-            </div>
-            <div class="row row4">
-                <div class="space space1"></div>
-                <div class="space space2"></div>
-                <div class="space space3"></div>
-                <div class="space space4"></div>
-                <div class="space space5"><span class="player1 piece">P</span></div>
-                <div class="space space6"></div>
-                <div class="space space7"></div>
-                <div class="space space8"></div>
-                <span class="clearfix"></span>
-            </div>
-            <div class="row row5">
-                <div class="space space1"></div>
-                <div class="space space2"></div>
-                <div class="space space3"></div>
-                <div class="space space4"></div>
-                <div class="space space5"></div>
-                <div class="space space6"></div>
-                <div class="space space7"></div>
-                <div class="space space8"></div>
-                <span class="clearfix"></span>
-            </div>
-            <div class="row row6">
-                <div class="space space1"></div>
-                <div class="space space2"></div>
-                <div class="space space3"></div>
-                <div class="space space4"></div>
-                <div class="space space5"><span class="player2 pawn piece">P</span></div>
-                <div class="space space6"><span class="player2 piece">Kn</span></div>
-                <div class="space space7"></div>
-                <div class="space space8"></div>
-                <span class="clearfix"></span>
-            </div>
-            <div class="row row7">
-                <div class="space space1"><span class="player2 pawn piece">P</span></div>
-                <div class="space space2"><span class="player2 pawn piece">P</span></div>
-                <div class="space space3"><span class="player2 pawn piece">P</span></div>
-                <div class="space space4"><span class="player2 pawn piece">P</span></div>
-                <div class="space space5"></div>
-                <div class="space space6"><span class="player2 pawn piece">P</span></div>
-                <div class="space space7"><span class="player2 pawn piece">P</span></div>
-                <div class="space space8"><span class="player2 pawn piece">P</span></div>
-                <span class="clearfix"></span>
-            </div>
-            <div class="row row8">
-                <div class="space space1"><span class="player2 piece">R</span></div>
-                <div class="space space2"><span class="player2 piece">Kn</span></div>
-                <div class="space space3"><span class="player2 piece">B</span></div>
-                <div class="space space4"><span class="player2 piece">Q</span></div>
-                <div class="space space5"><span class="player2 piece">K</span></div>
-                <div class="space space6"><span class="player2 piece">B</span></div>
-                <div class="space space7"></div>
-                <div class="space space8"><span class="player2 piece">R</span></div>
-                <span class="clearfix"></span>
-            </div>
         </div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        {{/each}}
+    </div>
+</script>
+<div id="board"></div>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
+        <script src="js/vendor/handlebars.js"></script>
         <script src="js/main.js"></script>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
     </body>
 </html>
