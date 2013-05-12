@@ -3,13 +3,5 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
-
-# THANKS
-
-    <name>
-
-# TECHNOLOGY COLOPHON
-
-    HTML5, CSS3
-    Normalize.css, jQuery, Modernizr
+    Alex Harris -- Contributor  -- @alexharris6
+    Lucas Thurston -- Contributor -- @mellowestbro
